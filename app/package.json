@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/racavi/express-rest-google-auth-server/issues"
   },
-  "homepage": "https://github.com/racavi/express-rest-google-auth-server#readme"
+  "homepage": "https://github.com/racavi/express-rest-google-auth-server#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
