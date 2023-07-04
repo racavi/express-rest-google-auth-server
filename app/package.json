@@ -1,0 +1,28 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "This application is an Express REST server integrating \"Sign in with Google\" to provide user authentication.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/racavi/express-rest-google-auth-server.git"
+  },
+  "keywords": [
+    "express",
+    "REST",
+    "server",
+    "sign-in-with-google",
+    "authentication",
+    "OAuth2",
+    "JWT"
+  ],
+  "author": "Rafa Calvo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/racavi/express-rest-google-auth-server/issues"
+  },
+  "homepage": "https://github.com/racavi/express-rest-google-auth-server#readme"
+}
