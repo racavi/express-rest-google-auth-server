@@ -16,6 +16,14 @@ cd app/
 npm install
 ```
 
+### Configure environment variables
+
+This app uses a module named `dotenv` to manage environment variables. It loads environment variables from a `.env` file into the Node process.env API. To test it, create the file `app/.env` and declare a `PORT` environment variable with a value of your choice, e.g: `8080` do this by pasting the following content to the file:
+
+```bash
+PORT=8080
+```
+
 ### Run the application
 
 You can run the application in production mode by issuing the following command:
@@ -32,6 +40,7 @@ nodemon app.js
 
 ## References
 
+- [dotenv](https://www.npmjs.com/package/dotenv)
 - [Express](https://www.npmjs.com/package/express)
 - [Node.js](https://nodejs.org/)
 - [nodemon](https://www.npmjs.com/package/nodemon)
