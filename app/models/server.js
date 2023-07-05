@@ -5,6 +5,7 @@ const cors = require('cors');
 class Server {
   #app;
   #port;
+  #usersPath = '/api/v1/users';
 
   constructor() {
     this.#app = express();
@@ -18,9 +19,7 @@ class Server {
   }
 
   #routes() {
-    this.#app.get('/', (req, res) => {
-      res.send('Hello World!');
-    });
+    this.#app.use(this.#usersPath, require('../routes/users'));
   }
 
   listen() {
