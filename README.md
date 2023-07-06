@@ -5,6 +5,8 @@ This repository backs an Express REST server that integrates "Sign in with Googl
 
 This is a Node.js® application, as such, you will need to have Node.js installed alongsige `npm` ( Node Package Manager) in your target host to be able to run this application.
 
+If you are not able to access a MongoDB instance, you can provision one to let the application connect to it whenever you have Docker installed in your machine.
+
 ## Getting started
 
 ### Install the dependencies
@@ -24,6 +26,26 @@ This app uses a module named `dotenv` to manage environment variables. It loads 
 PORT=8080
 ```
 
+### Start local database
+
+To support both development and testing efforts this repository hosts a Docker Compose file that can be used to provision one MongoDB instance alongside a Mongo Express instance as Docker containers. To create both instances you are expected to run the following at your command prompt:
+
+```bash
+docker compose -f docker-compose.yaml up -d
+```
+
+You can check the status of the containers issuing the following command:
+
+```bash
+docker compose ps
+```
+
+To stop both containers when you are done developing/testing simply run this command:
+
+```bash
+docker compose down
+```
+
 ### Run the application
 
 You can run the application in production mode by issuing the following command:
@@ -40,8 +62,11 @@ nodemon app.js
 
 ## References
 
+- [Docker](https://www.docker.com/)
 - [dotenv](https://www.npmjs.com/package/dotenv)
 - [Express](https://www.npmjs.com/package/express)
+- [MongoDB](https://www.mongodb.com/)
+- [Mongo Express](https://github.com/mongo-express/mongo-express)
 - [Node.js](https://nodejs.org/)
 - [nodemon](https://www.npmjs.com/package/nodemon)
 - [npm](https://www.npmjs.com/package/npm)
