@@ -22,7 +22,11 @@ class Server {
   }
   
   #middlewares() {
+    // CORS
     this.#app.use(cors());
+
+    // Read and parse Request body
+    this.#app.use(express.json());
   }
 
   #routes() {
