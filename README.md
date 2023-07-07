@@ -60,6 +60,20 @@ If you want to tweak/hack this source code and see what happens introducing some
 nodemon app.js
 ```
 
+### Create User accounts
+
+You may want to try out 'Sign In' feature. To successfully test this flow, a User account is expected to be already present in the system before trying to 'Sign In' using such email.  
+
+In order to create an account you only need to call the User creation endpoint with an email value. Here is an example call using `curl` command:
+
+```bash
+curl --location 'http://localhost:8080/api/v1/users' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "mail": "my_user@gmail.com"
+}'
+```
+
 ## References
 
 - [Docker](https://www.docker.com/)
