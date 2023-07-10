@@ -7,7 +7,8 @@ const { dbConnection } = require('../db/config');
 class Server {
   #app;
   #port;
-  #usersPath = '/api/v1/users';
+  #authPath   = '/api/v1/auth';
+  #usersPath  = '/api/v1/users';
 
   constructor() {
     this.#app = express();
@@ -30,6 +31,7 @@ class Server {
   }
 
   #routes() {
+    this.#app.use(this.#authPath, require('../routes/auth'));
     this.#app.use(this.#usersPath, require('../routes/users'));
   }
 
