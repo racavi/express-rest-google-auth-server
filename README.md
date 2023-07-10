@@ -26,6 +26,10 @@ This app uses a module named `dotenv` to manage environment variables. It loads 
 PORT=8080
 ```
 
+Further environment variables are expected:
+
+- `GOOGLE_CLIENT_ID`: This is [your Google API client ID](https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid)
+
 ### Start local database
 
 To support both development and testing efforts this repository hosts a Docker Compose file that can be used to provision one MongoDB instance alongside a Mongo Express instance as Docker containers. To create both instances you are expected to run the following at your command prompt:
