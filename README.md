@@ -29,6 +29,7 @@ PORT=8080
 Further environment variables are expected:
 
 - `GOOGLE_CLIENT_ID`: This is [your Google API client ID](https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid)
+- `SECRET_OR_PRIVATE_KEY`: This is a secret for HMAC algorithms or the PEM encoded private key for RSA and ECDSA used by `jsonwebtoken` package. e.g: `xAXYctPxeiSLx5ndWEn4MQrw`.
 
 ### Start local database
 
@@ -83,6 +84,7 @@ curl --location 'http://localhost:8080/api/v1/users' \
 - [Docker](https://www.docker.com/)
 - [dotenv](https://www.npmjs.com/package/dotenv)
 - [Express](https://www.npmjs.com/package/express)
+- [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
 - [MongoDB](https://www.mongodb.com/)
 - [Mongo Express](https://github.com/mongo-express/mongo-express)
 - [Node.js](https://nodejs.org/)
