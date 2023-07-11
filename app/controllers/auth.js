@@ -3,6 +3,7 @@ const { request, response } = require('express');
 const User = require('../models/user');
 
 const { verifyGoogleIdToken } = require('../helpers/google-validators');
+const { generateJWT } = require('../helpers/jwt-generator');
 
 
 const googleSignIn = async(req=request, res=response) => {
@@ -22,8 +23,11 @@ const googleSignIn = async(req=request, res=response) => {
             await user.save();
         }
 
+        const token = await generateJWT(user._id);
+
         res.json({
-            uid: user._id
+            uid: user._id,
+            token
         });
 
     } catch (error) {
