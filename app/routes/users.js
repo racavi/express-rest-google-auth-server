@@ -5,7 +5,8 @@ const { validateFields } = require('../middlewares/validate-fields');
 
 const { checkUserMailAvailability } = require('../helpers/db-validators')
 
-const { usersGet, usersPost } = require('../controllers/users');
+const { userRead, usersGet, usersPost } = require('../controllers/users');
+const { validateJWT } = require('../middlewares/validate-jwt');
 
 const router = Router();
 router.get('/', usersGet);
@@ -14,5 +15,9 @@ router.post('/', [
     check('mail').custom( checkUserMailAvailability ),
     validateFields
 ], usersPost);
+router.get('/:id', [
+    validateJWT,
+    validateFields,
+], userRead);
 
 module.exports = router;

@@ -19,7 +19,14 @@ const usersPost = async( req, res = response) => {
     });
 }
 
+const userRead = async(req, res = response) => {
+    const { id } = req.params;
+    const user = await User.findById(id);
+    res.json(user);
+}
+
 module.exports = {
     usersGet,
-    usersPost
+    usersPost,
+    userRead,
 }
