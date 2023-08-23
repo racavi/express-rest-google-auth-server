@@ -8,6 +8,7 @@ class Server {
   #app;
   #port;
   #authPath   = '/api/v1/auth';
+  #toolsPath   = '/api/v1/tools';
   #usersPath  = '/api/v1/users';
 
   constructor() {
@@ -32,6 +33,7 @@ class Server {
 
   #routes() {
     this.#app.use(this.#authPath, require('../routes/auth'));
+    this.#app.use(this.#toolsPath, require('../routes/tools'));
     this.#app.use(this.#usersPath, require('../routes/users'));
   }
 
