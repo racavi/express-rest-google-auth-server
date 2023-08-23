@@ -23,21 +23,39 @@ const googleSignIn = async(req=request, res=response) => {
             await user.save();
         }
 
-        const token = await generateJWT(user._id);
+        const access_token = await generateJWT(user._id);
 
         res.json({
-            uid: user._id,
-            token
+            token: access_token
         });
 
     } catch (error) {
         console.log('Sign in with Google - ERROR:', error);
         res.status(400).json({
-            msg: 'Could not verify Google ID Token.'
+            message: 'Could not verify Google ID Token.'
         })
     }
 }
 
+// @desc Authenticates User via access token
+// @route GET /api/v1/auth/authenticate
+// @access Private - Valid Access JWT is required to use it
+const authenticate = async(req=request, res=response) => {
+    const id = req.uid;
+    const { mail } = await User.findById(id).exec();
+
+    if ( mail ) {
+        return res.status(200).json({
+            mail
+        });
+    }
+
+    return res.status(401).json({
+        message: 'Bad credentials'
+    })
+}
+
 module.exports = {
-    googleSignIn
+    googleSignIn,
+    authenticate,
 }
