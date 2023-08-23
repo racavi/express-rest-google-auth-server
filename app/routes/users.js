@@ -6,7 +6,7 @@ const { validateFields } = require('../middlewares/validate-fields');
 const { checkUserMailAvailability } = require('../helpers/db-validators')
 
 const { userRead, usersGet, usersPost } = require('../controllers/users');
-const { validateJWT } = require('../middlewares/validate-jwt');
+const { verifyAccessJWT } = require('../middlewares/verify-access-jwt')
 
 const router = Router();
 router.get('/', usersGet);
@@ -16,7 +16,7 @@ router.post('/', [
     validateFields
 ], usersPost);
 router.get('/:id', [
-    validateJWT,
+    verifyAccessJWT,
     validateFields,
 ], userRead);
 
